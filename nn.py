@@ -27,9 +27,11 @@ def load_iris(file_name):
 #def tanh(x):
 #    return np.tanh(x)
 
+def sigmoid(x):
+    return 1.0/(1.0+np.exp(-x))
+
 #definition of  loss function
 #def crosss_entropy_loss:
-
 
 #definition of vanilla gradient descent : batch gradient descent with a fixed learning rate
 #use back propagation to calculate gradient efficiently
