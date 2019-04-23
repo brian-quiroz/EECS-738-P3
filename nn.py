@@ -77,7 +77,7 @@ def calculate_loss(model, X, y, num_examples):
     model, with four parameters
 '''
 def build_model(dim_of_hl, dim_of_il, dim_of_ol, X, y, epsilon, num_examples,iterations = 30000, print_loss = True):
-    
+
     #initialize weights and offset
     np.random.seed(0)#make sure get same set of random numbers
     W1 = np.random.randn(dim_of_il, dim_of_hl)/ np.sqrt (dim_of_il) #return W1 samples from standard normal distribution
@@ -100,17 +100,17 @@ def build_model(dim_of_hl, dim_of_il, dim_of_ol, X, y, epsilon, num_examples,ite
         delta2 = delta3.dot(W2.T) * (1 - np.power(a1, 2))
         dW1 = np.dot(X.T, delta2)
         db1 = np.sum(delta2, axis=0)
-    
+
         #regularization
         dW2 += regularization_strength * W2
         dW1 += regularization_strength * W1
-        
+
         # batch gradient descent
         W1 += -epsilon * dW1
         b1 += -epsilon * db1
         W2 += -epsilon * dW2
         b2 += -epsilon * db2
-        
+
         # update model
         model = { 'W1': W1, 'b1': b1, 'W2': W2, 'b2': b2}
         #print total loss every 1000 iterations to track accuracy
@@ -141,4 +141,3 @@ data, labels = load_iris("Iris.csv")
     '''
 num_examples = len(data)
 model = build_model(15, 4, 3, data, labels, 0.001 ,num_examples) #when learning rate == 0.001, it reaches decent results
-
