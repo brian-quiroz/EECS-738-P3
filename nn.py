@@ -160,9 +160,11 @@ def predict(model, x):
 print("**predict species of iris")
 data, labels = load_iris("Iris.csv")
 '''
-    number of species of iris is 3, so dim_of_il and dim_of_ol are both 3.
-    based on Kolmogorov theorem, set dim_of_hl to 2 * dime_of_il + 1
-    set epsilon (learning rate) to 0.01
+    The number of features (classes) we are considering is 3, so dim_of_il is 4.
+    The number of species of iris is 3, so dim_of_ol is 3.
+    Based on Kolmogorov theorem, we set dim_of_hl to 2 * dime_of_il + 1
+    We set epsilon (learning rate) to 0.001, also based on trial and error.
+    The program takes about 30 000 iterations to reach decent results.
     '''
 num_examples = len(data)
 model = build_model(15, 4, 3, data, labels, 0.001 ,num_examples) #when learning rate == 0.001, it reaches decent results
@@ -171,9 +173,11 @@ model = build_model(15, 4, 3, data, labels, 0.001 ,num_examples) #when learning 
 print("**predict species of mushroom")
 data, labels = load_seeds("seeds_dataset.txt")
 '''
-    number of types of seeds is 3, so dim_of_il and dim_of_ol are both 3.
-    based on Kolmogorov theorem, set dim_of_hl to 2 * dime_of_il + 1
-    set epsilon (learning rate) to 0.0002
+    The number of features (classes) we are considering is 7, so dim_of_il is 7.
+    The number of types of wheat is 3, so dim_of_ol is 3.
+    Through trial and error, we determine 40 to be a good size for the hidden layer (dim_of_hl).
+    We set epsilon (learning rate) to 0.0002, also based on trial and error.
+    The program takes about 45000 iterations to reach decent results.
     '''
 num_examples = len(data)
-model = build_model(40, 7, 3, data, labels, 0.0002 ,num_examples, 45000) #when learning rate == 0.001, it reaches decent results
+model = build_model(40, 7, 3, data, labels, 0.0002 ,num_examples, 45000) #when learning rate == 0.0002, it reaches decent results
