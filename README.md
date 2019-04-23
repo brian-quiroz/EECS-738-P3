@@ -9,7 +9,7 @@ The dimension of input layer, namely the number of input nodes in input layer, i
 
 To find best parameters for training model, difference between prediction and expected class needs to be minimized. We use ***cross-entropy loss*** to define this difference. To minimize total loss, we employ ***batch gradient descent***. Back propagation algorithm will be used to calculate gradient efficiently.
 
-we tried different values for learning rate and regularization strength. It turns out that when learning rate == 0.001 and regularization strength == 0.001, comparable decent results can be achieved.
+We tried different values for learning rate and regularization strength. It turns out that when learning rate == 0.001 and regularization strength == 0.001, comparable decent results can be achieved.
 
 Finally, to make sure the final probabilities is in range [0, 1], we apply activation function *softmax* on output layer.
 
