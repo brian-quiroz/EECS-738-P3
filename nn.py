@@ -34,6 +34,31 @@ def load_iris(file_name):
     labels = np.array(labels)
     return dataset, labels
 
+#read mushroom data from local
+def load_seeds(file_name):
+    file = open(file_name)
+    rows = file.read().splitlines() #split the lines at line boundaries returns a list of lines
+    file.close()
+    dataset = []
+    labels = []
+
+    #for each data row, create a new list to store 23 features
+    for i in range(1,len(rows)): # skip first row(name of features)
+        col = rows[i].split('\t') # create a list of strings after breaking the given string by ','
+        item_features = [] #one list for each item
+        # for each column
+        for j in range(0, len(col)):
+            val = float(col[j]) #convert values to float, make sure types are not flexible
+            # print("val", val)
+            if j == len(col) - 1:
+                labels.append(int(val - 1.0))
+            else:
+                item_features.append(val); #add feature value to item list
+        dataset.append(item_features)
+
+    dataset = np.array(dataset) #conversion from 2d list to 2d array
+    return dataset, labels
+
 
 #definition of activation function
 def tanh(x):
@@ -141,3 +166,14 @@ data, labels = load_iris("Iris.csv")
     '''
 num_examples = len(data)
 model = build_model(15, 4, 3, data, labels, 0.001 ,num_examples) #when learning rate == 0.001, it reaches decent results
+
+
+print("**predict species of mushroom")
+data, labels = load_seeds("seeds_dataset.txt")
+'''
+    number of types of seeds is 3, so dim_of_il and dim_of_ol are both 3.
+    based on Kolmogorov theorem, set dim_of_hl to 2 * dime_of_il + 1
+    set epsilon (learning rate) to 0.0002
+    '''
+num_examples = len(data)
+model = build_model(40, 7, 3, data, labels, 0.0002 ,num_examples, 45000) #when learning rate == 0.001, it reaches decent results
