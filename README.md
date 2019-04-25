@@ -16,13 +16,14 @@ We tried different values for learning rate and regularization strength. It turn
 Finally, to make sure the final probabilities is in range [0, 1], we apply activation function *softmax* on output layer.
 
 ##Iris Dataset
-The dimension of the input layer for the Iris Dataset was 4, since each iris item consists of four features: SepalLength, SepalWidth, PetalLength and PetalWidth. The output layer would be three dimensional since we are classifying flowers. To make it computational feasible,  we replace "Iris-setosa" with 0, 'Iris-versicolor' with 1, and 'Iris-virginica' with 2.
+The dimension of the input layer for the Iris Dataset was 4, since each iris item consists of four features: SepalLength, SepalWidth, PetalLength and PetalWidth. The output layer would be three dimensional since we are classifying flowers into 3 categories. To make it computational feasible,  we replace "Iris-setosa" with 0, 'Iris-versicolor' with 1, and 'Iris-virginica' with 2.
 
 
+##Seeds Dataset
+The dimension of the input layer for the Seeds Dataset was 7, since each seed item consists of four features: Area, Perimeter, Compactness, Length of Kernel, Width of Kernel, Asymmetry Coefficient, Length of Kernel Groove. The output layer would be three dimensional since we are classifying seeds into three types of wheat (represented in the dataset as integers from 1 to 3). For consistency with our implementation, we subtracted 1 from each output integer such that 3 was mapped to 2, 2 mapped to 1, and 1 mapped to 0.
 
 
-
-### reference
+### References
 
 http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch/
 http://neuralnetworksanddeeplearning.com/chap1.html
