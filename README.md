@@ -1,7 +1,7 @@
 # EECS-738-P3
 ## how neural network can be used to make classification prediction
 
-### architecture
+### Architecture
 
 In this project, we utilize a simple neural network (more precisely, a multilayer perceptron, or MLP) to perform two classification tasks. This neural network consists of one input layer, one hidden layer and one output layer. Our datasets were the "Iris Dataset" and the "Seeds Dataset".
 
