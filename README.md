@@ -1,5 +1,5 @@
 # EECS-738-P3
-## how neural network can be used to make classification prediction
+## How Neural Network can be Used to Make Classification Predictions
 
 ### Architecture
 
